@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,6 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         googleButton.setOnClickListener {
             Toast.makeText(applicationContext, "Google", Toast.LENGTH_SHORT).show()
+            val intent = Intent()
+            intent.action = MediaStore.ACTION_IMAGE_CAPTURE
+            startActivityForResult(intent, 0)
         }
 
         getStartedButton.setOnClickListener {
