@@ -1,119 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/gambarMobilImageView"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_mobil"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"/>
 
-    <TextView
-        android:id="@+id/textWelcomeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to AirBnb"
-        android:textSize="34sp"
-        app:layout_constraintTop_toBottomOf="@id/gambarMobilImageView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="24dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/textJoinInfoTextView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/countryRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textWelcomeTextView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="24dp"
-        android:textSize="15dp"
-        android:text="Join our community of hosts and guests from 191 countries around the world."/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"/>
 
-    <EditText
-        android:id="@+id/emailAddressEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textJoinInfoTextView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="72dp"
-        android:hint="Email address"/>
-
-    <Button
-        android:id="@+id/getStartedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/emailAddressEditText"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="24dp"
-        android:background="#FF5A5F"
-        android:text="Get Started"
-        android:textColor="#FFFFFF"/>
-
-    <ImageView
-        android:id="@+id/facebookButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_facebook"
-        app:layout_constraintTop_toBottomOf="@id/getStartedButton"
-        app:layout_constraintRight_toLeftOf="@id/appleButton"
-        android:layout_marginTop="28dp"
-        android:layout_marginRight="32dp"/>
-
-    <ImageView
-        android:id="@+id/appleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_apple"
-        app:layout_constraintTop_toBottomOf="@id/getStartedButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="28dp"/>
-
-    <ImageView
-        android:id="@+id/googleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_google"
-        app:layout_constraintTop_toBottomOf="@id/getStartedButton"
-        app:layout_constraintLeft_toRightOf="@id/appleButton"
-        android:layout_marginTop="28dp"
-        android:layout_marginLeft="32dp"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/appleButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <TextView
-            android:id="@+id/alreadyHaveAccTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Already have an account? "
-            app:layout_constraintTop_toBottomOf="@id/appleButton"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="28dp"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Log in"
-            android:layout_marginTop="28dp"
-            app:layout_constraintLeft_toRightOf="@id/alreadyHaveAccTextView"
-            app:layout_constraintTop_toBottomOf="@id/appleButton"
-            android:textColor="#FF5A5F"/>
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,6 +2,8 @@ package com.example.pelatihanandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.pelatihanandroid.model.Country
 import com.example.pelatihanandroid.model.DataByCountry
 import com.example.pelatihanandroid.network.RetrofitBuilder
 import kotlinx.android.synthetic.main.activity_show_data.*
@@ -25,11 +27,18 @@ class ShowDataActivity : AppCompatActivity() {
                 call: Call<List<DataByCountry>>,
                 response: Response<List<DataByCountry>>
             ) {
-                val result = response.body()?.get(0)?.deaths
-                dataTextView.text = "Death = " + result
+                if(response.body()?.size ?: 0 > 0) {
+                    setViewData(response.body()?.get(0))
+                } else {
+                    dataTextView.text = "Country Data Couldn't Be Found"
+                }
             }
 
         })
+    }
+
+    private fun setViewData(country: DataByCountry?) {
+        dataTextView.text = "Death = " + country?.deaths
     }
 
 }
