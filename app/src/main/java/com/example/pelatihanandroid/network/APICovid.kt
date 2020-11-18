@@ -5,12 +5,15 @@ import com.example.pelatihanandroid.model.DataByCountry
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface APICovid {
 
-    @GET("https://api.covid19api.com/countries")
+    @GET("countries")
     fun getCountryList(): Call<List<Country>>
 
-    @GET("country/{countryInput}?from=2020-11-12T00:00:00Z&to=2020-11-13T00:00:00Z")
-    fun getDataByCountry(@Path("countryInput") countryInput: String): Call<List<DataByCountry>>
+    @GET("total/country/{countryInput}")
+    fun getDataByCountry(@Path("countryInput") countryInput: String,
+                         @Query("from") from: String,
+                         @Query("to") to: String): Call<List<DataByCountry>>
 }

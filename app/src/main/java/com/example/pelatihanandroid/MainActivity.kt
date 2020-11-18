@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     private fun countryClickedListener(country: Country) {
         val intent = Intent(this, ShowDataActivity::class.java)
         intent.putExtra("EXTRA_DATA", country.slug)
+        intent.putExtra("EXTRA_DATA_COUNTRY_ID", country.iSO2)
         startActivity(intent)
-        Toast.makeText(applicationContext, "Country selected is ${country.country}", Toast.LENGTH_SHORT).show()
     }
 }
